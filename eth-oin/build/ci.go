@@ -75,6 +75,7 @@ var (
 		"COPYING",
 		executablePath("abigen"),
 		executablePath("bootnode"),
+		executablePath("bridgeoin"),
 		executablePath("evm"),
 		executablePath("geth"),
 		executablePath("puppeth"),
@@ -92,6 +93,10 @@ var (
 		{
 			BinaryName:  "bootnode",
 			Description: "Ethereum bootnode.",
+		},
+		{
+			BinaryName:  "bridgeoin",
+			Description: "Ethereum bridge Oin.",
 		},
 		{
 			BinaryName:  "evm",
