@@ -1,1 +1,1 @@
-eth bridge and ont bridge
+bridge for others
