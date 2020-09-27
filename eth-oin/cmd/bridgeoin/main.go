@@ -18,8 +18,9 @@ func init() {
 }
 
 func main() {
-	test_eth_client()
+
 }
+
 func test_rpc_client() {
 	client, err := rpc.Dial("http://47.242.40.47:6666")
 	if err != nil {
