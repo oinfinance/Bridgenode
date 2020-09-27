@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-type bridge struct {
+type Bridge struct {
 	wg       sync.WaitGroup
 	quit     chan os.Signal
 	srv_http *http.Server
@@ -20,15 +20,20 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("this is bridge http server"))
 }
 
-func (b *bridge) Start() {
+func NewBridge() *Bridge {
+	bridge := &Bridge{}
+	return bridge
+}
+
+func (b *Bridge) Start() {
 
 }
 
-func (b *bridge) loop() {
+func (b *Bridge) loop() {
 	defer b.wg.Done()
 }
 
-func (b *bridge) startHttp() {
+func (b *Bridge) startHttp() {
 
 	b.quit = make(chan os.Signal)
 	signal.Notify(b.quit, os.Interrupt)
@@ -60,7 +65,7 @@ func (b *bridge) startHttp() {
 	}
 }
 
-func (b *bridge) hdlTest(w http.ResponseWriter, r *http.Request) {
+func (b *Bridge) hdlTest(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("bye bye ,shutdown http server"))
 	err := b.srv_http.Shutdown(nil)
 	if err != nil {

@@ -12,5 +12,7 @@ func init() {
 }
 
 func main() {
-
+	bridge := NewBridge()
+	bridge.Start()
+	log.Info("service over")
 }
